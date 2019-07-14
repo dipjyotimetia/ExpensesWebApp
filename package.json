@@ -4,6 +4,35 @@
   "private": true,
   "author": "Dipjyoti Metia",
   "description": "Expense tracking app using react",
+  "scripts": {
+    "start": "webpack-dev-server --config webpack.config.dev.js --port 3000",
+    "webpack:build": "webpack --config webpack.config.prod.js",
+    "mock:start": "run-p start:dev start:api",
+    "start:dev": "cross-env REACT_APP_API_URL=http://localhost:3001 react-scripts start",
+    "prestart:api": "node tools/createMockDb.js",
+    "start:api": "node tools/apiServer.js",
+    "build": "react-scripts build",
+    "test": "jest --watch",
+    "test:coverage": "jest --coverage --colors",
+    "eject": "react-scripts eject",
+    "lint": "eslint --cache --format codeframe --ext js,jsx src",
+    "lint:fix": "eslint --cache --format codeframe --ext js,jsx src --fix"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
   "dependencies": {
     "@babel/polyfill": "7.4.3",
     "bootstrap": "^4.3.1",
@@ -87,35 +116,6 @@
     "redux-mock-store": "1.5.3",
     "fetch-mock": "7.3.3",
     "node-fetch": "2.6.0"
-  },
-  "scripts": {
-    "start": "webpack-dev-server --config webpack.config.dev.js --port 3000",
-    "webpack:build": "webpack --config webpack.config.prod.js",
-    "mock:start": "run-p start:dev start:api",
-    "start:dev": "cross-env REACT_APP_API_URL=http://localhost:3001 react-scripts start",
-    "prestart:api": "node tools/createMockDb.js",
-    "start:api": "node tools/apiServer.js",
-    "build": "react-scripts build",
-    "test": "jest --watch",
-    "test:coverage": "jest --coverage --colors",
-    "eject": "react-scripts eject",
-    "lint": "eslint --cache --format codeframe --ext js,jsx src",
-    "lint:fix": "eslint --cache --format codeframe --ext js,jsx src --fix"
-  },
-  "eslintConfig": {
-    "extends": "react-app"
-  },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
   },
   "husky": {
     "hooks": {
