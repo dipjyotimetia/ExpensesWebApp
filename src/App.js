@@ -1,6 +1,6 @@
 import React from 'react'
 import { Route, Switch } from 'react-router-dom'
-import LoginPage from './Login/LoginPage'
+import LoginPage from './views/Login/LoginPage'
 
 function App() {
   return (

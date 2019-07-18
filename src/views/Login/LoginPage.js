@@ -1,5 +1,6 @@
 import React from 'react'
-import TextInput from '../components/TextInput'
+import TextInput from '../../components/TextInput'
+// import styles from './LoginPage.css'
 
 const LoginPage = props => (
   <div>
